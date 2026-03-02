@@ -1,0 +1,135 @@
+/* Calcul largeur + padding inclus */
+* { box-sizing: border-box; }
+
+/* Style général page */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    padding: 40px 20px;
+
+    /* Layout cartes */
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Carte principale */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 320px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative; /* pour contenu absolu */
+}
+
+/* =====================
+   SKELETON (chargement)
+===================== */
+
+/* Effet chargement animé */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+
+    /* Animation brillance + disparition */
+    animation:
+        shimmer 1.5s infinite,
+        hideSkeleton 0.5s ease forwards;
+    animation-delay: 0s, 2s;
+}
+
+/* Animation lumière glissante */
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Cache le skeleton après chargement */
+@keyframes hideSkeleton {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Avatar placeholder */
+.skeleton-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+/* Titre placeholder */
+.skeleton-title {
+    height: 24px;
+    width: 70%;
+    margin-bottom: 12px;
+}
+
+/* Texte placeholder */
+.skeleton-text {
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+/* Dernière ligne plus courte */
+.skeleton-text:last-child {
+    width: 80%;
+}
+
+/* =====================
+   CONTENU RÉEL
+===================== */
+
+/* Contenu caché au départ */
+.real-content {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    /* Apparition après 2s */
+    animation: showContent 0.6s ease forwards;
+    animation-delay: 2s;
+}
+
+/* Animation apparition contenu */
+@keyframes showContent {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Avatar réel */
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+/* Titre */
+h3 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+}
+
+/* Texte */
+p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}

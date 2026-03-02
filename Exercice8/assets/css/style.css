@@ -1,0 +1,80 @@
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+/* ITEM */
+details {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* QUESTION */
+summary {
+    padding: 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary:hover {
+    background: #f8f9fa;
+}
+
+/* supprimer flèche native */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* flèche custom */
+summary::after {
+    content: "▼";
+    font-size: 0.8rem;
+    color: #667eea;
+    transition: transform 0.3s;
+}
+
+/* rotation flèche */
+details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+/* CONTENU */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    color: #555;
+    line-height: 1.6;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+/* animation ouverture */
+details[open] .faq-content {
+    max-height: 300px;
+    padding: 0 24px 24px;
+}

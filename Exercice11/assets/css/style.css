@@ -1,0 +1,119 @@
+/* Applique box-sizing à tous les éléments */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif; /* Police principale */
+    background: #f5f7fa; /* Fond gris clair */
+    padding: 40px 20px; /* Espacement page */
+    max-width: 800px; /* Largeur max contenu */
+    margin: 0 auto; /* Centre la page */
+}
+
+/* Titre principal */
+h1 {
+    color: #2c3e50; /* Couleur texte */
+    margin-bottom: 30px; /* Espace bas */
+}
+
+/* Conteneur onglets */
+.tabs {
+    background: white; /* Fond blanc */
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre */
+    overflow: hidden; /* Cache débordement */
+}
+
+/* Liste des onglets */
+.tab-list {
+    display: flex; /* Affichage horizontal */
+    background: #f8f9fa; /* Fond gris */
+    border-bottom: 2px solid #e9ecef; /* Ligne séparation */
+    list-style: none; /* Supprime puces */
+    margin: 0; /* Supprime marges */
+    padding: 0; /* Supprime padding */
+}
+
+/* Bouton onglet */
+.tab {
+    flex: 1; /* Largeur égale */
+    padding: 16px 24px; /* Espacement interne */
+    background: none; /* Pas de fond */
+    border: none; /* Pas de bordure */
+    cursor: pointer; /* Curseur main */
+    font-size: 1rem; /* Taille texte */
+    font-weight: 500; /* Texte semi-gras */
+    color: #6c757d; /* Texte gris */
+    position: relative; /* Position relative */
+    transition: all 0.3s; /* Animation */
+    border-bottom: 3px solid transparent; /* Ligne inactive */
+    margin-bottom: -2px; /* Ajuste bordure */
+}
+
+/* Effet survol onglet */
+.tab:hover {
+    color: #495057; /* Texte plus foncé */
+    background: rgba(102, 126, 234, 0.05); /* Fond léger */
+}
+
+/* Onglet actif */
+.tab[aria-selected="true"] {
+    color: #667eea; /* Couleur active */
+    border-bottom-color: #667eea; /* Ligne active */
+    background: white; /* Fond blanc */
+}
+
+/* Focus accessibilité */
+.tab:focus-visible {
+    outline: none; /* Supprime contour défaut */
+    background: rgba(102, 126, 234, 0.1); /* Indicateur focus */
+}
+
+/* Contenu onglet */
+.tab-panel {
+    padding: 30px; /* Espacement interne */
+    display: none; /* Caché par défaut */
+    animation: fadeIn 0.3s; /* Animation apparition */
+}
+
+/* Contenu actif */
+.tab-panel.active {
+    display: block; /* Affiche contenu */
+}
+
+/* Titre panneau */
+.tab-panel h2 {
+    margin-top: 0; /* Supprime marge haute */
+    color: #2c3e50; /* Couleur texte */
+    font-size: 1.5rem; /* Taille texte */
+}
+
+/* Texte panneau */
+.tab-panel p {
+    color: #555; /* Texte gris */
+    line-height: 1.6; /* Espacement lignes */
+    margin-bottom: 16px; /* Espace bas */
+}
+
+/* Animation apparition contenu */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); } /* Départ invisible */
+    to { opacity: 1; transform: translateY(0); } /* Position normale */
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+
+    .tab-list {
+        flex-direction: column; /* Onglets en colonne */
+    }
+    
+    .tab {
+        text-align: left; /* Texte aligné gauche */
+        border-bottom: 1px solid #e9ecef; /* Séparation */
+    }
+    
+    .tab[aria-selected="true"] {
+        border-left: 4px solid #667eea; /* Indicateur actif */
+        border-bottom-color: transparent; /* Supprime ligne bas */
+    }
+}

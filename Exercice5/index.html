@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Photos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a1a;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 30px 20px 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover .overlay {
+            transform: translateY(0);
+        }
+        
+        .overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Photographie</h1>
+    
+    <div class="gallery">
+        <figure class="photo-card">
+            <img src="./assets/images/image1.jpg" 
+                 alt="Montagnes au lever du soleil" loading="lazy">
+            <figcaption class="overlay">
+                <h3>Alpes Françaises</h3>
+                <p>Lever de soleil sur les sommets enneigés</p>
+            </figcaption>
+        </figure>
+        
+        <figure class="photo-card">
+            <img src="./assets/images/image2.jpg" 
+                 alt="Forêt brumeuse" loading="lazy">
+            <figcaption class="overlay">
+                <h3>Forêt de Brocéliande</h3>
+                <p>Brume matinale dans les bois anciens</p>
+            </figcaption>
+        </figure>
+        
+        <figure class="photo-card">
+            <img src="./assets/images/image3.jpg" 
+                 alt="Océan agité" loading="lazy">
+            <figcaption class="overlay">
+                <h3>Côte Sauvage</h3>
+                <p>Vagues déferlantes sur les rochers</p>
+            </figcaption>
+        </figure>
+        
+        <figure class="photo-card">
+            <img src="./assets/images/image4.jpg" 
+                 alt="Ville la nuit" loading="lazy">
+            <figcaption class="overlay">
+                <h3>Tokyo by Night</h3>
+                <p>Lumières néon dans le quartier de Shinjuku</p>
+            </figcaption>
+        </figure>
+        
+        <figure class="photo-card">
+            <img src="./assets/images/image5.jpg" 
+                 alt="Désert" loading="lazy">
+            <figcaption class="overlay">
+                <h3>Sahara</h3>
+                <p>Dunes dorées au coucher du soleil</p>
+            </figcaption>
+        </figure>
+        
+        <figure class="photo-card">
+            <img src="./assets/images/image6.jpg" 
+                 alt="Cascade" loading="lazy">
+            <figcaption class="overlay">
+                <h3>Cascade de Plitvice</h3>
+                <p>Eaux cristallines en Croatie</p>
+            </figcaption>
+        </figure>
+    </div>
+</body>
+</html>

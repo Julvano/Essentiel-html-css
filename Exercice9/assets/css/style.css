@@ -1,0 +1,181 @@
+/* Applique box-sizing à tous les éléments */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif; /* Police principale */
+    background: #f8f9fa; /* Fond gris clair */
+    padding: 40px 20px; /* Espacement page */
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1000px; /* Largeur maximale */
+    margin: 0 auto; /* Centre horizontalement */
+}
+
+/* Titre principal */
+h1 {
+    text-align: center; /* Centre texte */
+    color: #2c3e50; /* Couleur bleu foncé */
+    margin-bottom: 60px; /* Espace bas */
+}
+
+/* Timeline globale */
+.timeline {
+    position: relative; /* Référence positionnement */
+    padding: 20px 0; /* Espacement vertical */
+}
+
+/* Ligne centrale */
+.timeline::before {
+    content: ''; /* Élément décoratif */
+    position: absolute; /* Position libre */
+    left: 50%; /* Centre horizontal */
+    transform: translateX(-50%); /* Ajuste centrage */
+    width: 4px; /* Épaisseur ligne */
+    height: 100%; /* Hauteur complète */
+    background: linear-gradient(to bottom, #667eea, #764ba2); /* Dégradé */
+    border-radius: 2px; /* Coins arrondis */
+}
+
+/* Élément de timeline */
+.timeline-item {
+    position: relative; /* Position relative */
+    margin-bottom: 50px; /* Espace entre éléments */
+    width: 50%; /* Demi largeur */
+    padding: 0 40px; /* Espacement latéral */
+}
+
+/* Élément position gauche */
+.timeline-item:nth-child(odd) {
+    left: 0; /* Aligné gauche */
+    text-align: right; /* Texte à droite */
+}
+
+/* Élément position droite */
+.timeline-item:nth-child(even) {
+    left: 50%; /* Aligné droite */
+    text-align: left; /* Texte à gauche */
+}
+
+/* Points sur la ligne */
+.timeline-item::after {
+    content: ''; /* Élément décoratif */
+    position: absolute; /* Position libre */
+    width: 20px; /* Taille point */
+    height: 20px;
+    background: white; /* Fond blanc */
+    border: 4px solid #667eea; /* Bordure bleue */
+    border-radius: 50%; /* Cercle */
+    top: 0; /* Position haut */
+    z-index: 1; /* Au-dessus */
+    transition: all 0.3s; /* Animation */
+}
+
+/* Position point gauche */
+.timeline-item:nth-child(odd)::after {
+    right: -10px; /* Décalage droite */
+}
+
+/* Position point droite */
+.timeline-item:nth-child(even)::after {
+    left: -10px; /* Décalage gauche */
+}
+
+/* Effet survol point */
+.timeline-item:hover::after {
+    background: #667eea; /* Fond bleu */
+    transform: scale(1.3); /* Agrandit */
+}
+
+/* Contenu carte */
+.timeline-content {
+    background: white; /* Fond blanc */
+    padding: 24px; /* Espacement interne */
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre */
+    position: relative; /* Référence flèche */
+    transition: transform 0.3s; /* Animation */
+}
+
+/* Effet survol carte */
+.timeline-content:hover {
+    transform: translateY(-5px); /* Monte légèrement */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Ombre forte */
+}
+
+/* Flèches décoratives */
+.timeline-content::before {
+    content: ''; /* Élément décoratif */
+    position: absolute; /* Position libre */
+    top: 0; /* En haut */
+    width: 0; /* Triangle CSS */
+    height: 0;
+    border: 12px solid transparent; /* Bordures invisibles */
+}
+
+/* Flèche côté gauche */
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -24px; /* Position droite */
+    border-left-color: white; /* Triangle blanc */
+}
+
+/* Flèche côté droite */
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -24px; /* Position gauche */
+    border-right-color: white; /* Triangle blanc */
+}
+
+/* Badge date */
+.date {
+    display: inline-block; /* Élément en ligne bloc */
+    background: #667eea; /* Fond bleu */
+    color: white; /* Texte blanc */
+    padding: 6px 16px; /* Espacement interne */
+    border-radius: 20px; /* Forme pill */
+    font-size: 0.9rem; /* Taille texte */
+    font-weight: bold; /* Texte gras */
+    margin-bottom: 12px; /* Espace bas */
+}
+
+/* Sous-titre */
+h3 {
+    margin: 0 0 10px 0; /* Marges */
+    color: #2c3e50; /* Couleur texte */
+    font-size: 1.3rem; /* Taille texte */
+}
+
+/* Paragraphe */
+p {
+    margin: 0; /* Supprime marges */
+    color: #555; /* Texte gris */
+    line-height: 1.6; /* Espacement lignes */
+}
+
+/* Responsive tablette/mobile */
+@media (max-width: 768px) {
+
+    .timeline::before {
+        left: 30px; /* Ligne à gauche */
+    }
+    
+    .timeline-item {
+        width: 100%; /* Largeur complète */
+        left: 0 !important; /* Force position */
+        padding-left: 80px; /* Espace ligne */
+        padding-right: 20px; /* Espace droite */
+        text-align: left !important; /* Texte gauche */
+    }
+    
+    .timeline-item::after {
+        left: 20px !important; /* Position point */
+        right: auto !important; /* Annule droite */
+    }
+    
+    .timeline-content::before {
+        left: -24px !important; /* Flèche gauche */
+        right: auto !important; /* Annule droite */
+        border-right-color: white !important; /* Triangle visible */
+        border-left-color: transparent !important; /* Cache autre côté */
+    }
+}

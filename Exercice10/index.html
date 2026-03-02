@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Accessible</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+    <button class="btn-open" id="openModal">Ouvrir la modal</button>
+    
+    <p>Contenu de la page en arrière-plan. Essayez de naviguer au clavier quand la modal est ouverte !</p>
+
+    <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-title">Confirmation</h2>
+                <button class="btn-close" id="closeModal" aria-label="Fermer la boîte de dialogue">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir procéder à cette action ? Cette opération est irréversible et supprimera définitivement vos données.</p>
+                <p>Veuillez confirmer votre choix en cliquant sur le bouton approprié ci-dessous.</p>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelBtn">Annuler</button>
+                <button class="btn-primary" id="confirmBtn">Confirmer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const backdrop = document.getElementById('modalBackdrop');
+        const modal = backdrop.querySelector('.modal');
+        
+        let lastFocusedElement;
+        
+        function openModal() {
+            lastFocusedElement = document.activeElement;
+            backdrop.classList.add('active');
+            backdrop.setAttribute('aria-hidden', 'false');
+            
+            // Focus sur la modal
+            setTimeout(() => {
+                modal.focus();
+            }, 100);
+            
+            // Empêcher le scroll du body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            backdrop.classList.remove('active');
+            backdrop.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            
+            // Restaurer le focus
+            if (lastFocusedElement) {
+                lastFocusedElement.focus();
+            }
+        }
+        
+        // Event listeners
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+        
+        // Fermer en cliquant sur le backdrop
+        backdrop.addEventListener('click', (e) => {
+            if (e.target === backdrop) {
+                closeModal();
+            }
+        });
+        
+        // Fermer avec Echap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && backdrop.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Focus trap (simplifié)
+        modal.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                const focusableElements = modal.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                const firstFocusable = focusableElements[0];
+                const lastFocusable = focusableElements[focusableElements.length - 1];
+                
+                if (e.shiftKey && document.activeElement === firstFocusable) {
+                    e.preventDefault();
+                    lastFocusable.focus();
+                } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+                    e.preventDefault();
+                    firstFocusable.focus();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

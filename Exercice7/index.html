@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Produit</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+    <article class="product-card">
+        <div class="image-container">
+            <span class="badge">-30%</span>
+            <button class="wishlist" aria-label="Ajouter aux favoris">♡</button>
+            <img src="./assets/images/produit.jpg" alt="Casque audio premium">
+        </div>
+        
+        <div class="content">
+            <div class="category">Audio & Tech</div>
+            <h2>Casque Sans Fil Pro</h2>
+            <p class="description">Réduction de bruit active, 30h d'autonomie, son haute fidélité.</p>
+            
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="reviews">(128 avis)</span>
+            </div>
+            
+            <div class="price-container">
+                <span class="old-price">299€</span>
+                <span class="price">209€</span>
+            </div>
+            
+            <div class="actions">
+                <div class="quantity">
+                    <button type="button" aria-label="Diminuer">-</button>
+                    <input type="number" value="1" min="1" max="10" aria-label="Quantité">
+                    <button type="button" aria-label="Augmenter">+</button>
+                </div>
+                <button class="add-to-cart">
+                    <span>🛒</span>
+                    Ajouter
+                </button>
+            </div>
+        </div>
+    </article>
+</body>
+</html>

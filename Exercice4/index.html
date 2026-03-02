@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Créer un compte</h2>
+        
+        <form action="" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prenom">Prénom *</label>
+                    <input type="text" id="prenom" name="prenom" required 
+                           placeholder="Jean" pattern="[A-Za-zÀ-ÿ\s-]{2,}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nom">Nom *</label>
+                    <input type="text" id="nom" name="nom" required 
+                           placeholder="Dupont" pattern="[A-Za-zÀ-ÿ\s-]{2,}">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="jean.dupont@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Mot de passe *</label>
+                <input type="password" id="password" name="password" required 
+                       minlength="8" placeholder="8 caractères minimum">
+                <div class="hint">Au moins 8 caractères, 1 majuscule, 1 chiffre</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="naissance">Date de naissance *</label>
+                <input type="date" id="naissance" name="naissance" required 
+                       max="2006-01-01">
+            </div>
+            
+            <div class="form-group">
+                <label>Genre</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="genre" value="f"> Femme</label>
+                    <label><input type="radio" name="genre" value="h"> Homme</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="pays">Pays *</label>
+                <select id="pays" name="pays" required>
+                    <option value="">Sélectionnez...</option>
+                    <option value="fr">France</option>
+                    <option value="be">Belgique</option>
+                    <option value="ch">Suisse</option>
+                    <option value="ca">Canada</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="conditions" required>
+                        J'accepte les conditions générales *
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+</body>
+</html>

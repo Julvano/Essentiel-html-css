@@ -1,0 +1,82 @@
+/* Réinitialise marges, espaces internes et modèle de boîte */
+* { 
+    margin: 0; /* Supprime marges par défaut */
+    padding: 0; /* Supprime espaces internes par défaut */
+    box-sizing: border-box; /* Inclut padding et bordure dans la taille */
+}
+
+/* Style global de la page */
+body { 
+    font-family: 'Segoe UI', sans-serif; /* Définit la police du site */
+}
+
+/* Barre de navigation */
+.navbar {
+    background: #2c3e50; /* Fond bleu foncé */
+    padding: 0 20px; /* Espacement horizontal */
+    display: flex; /* Active Flexbox */
+    justify-content: space-between; /* Espace entre éléments */
+    align-items: center; /* Centre verticalement */
+    height: 70px; /* Hauteur fixe */
+}
+
+/* Logo */
+.logo {
+    color: white; /* Texte blanc */
+    font-size: 1.5rem; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Liste des liens */
+.nav-links {
+    display: flex; /* Liens en ligne */
+    list-style: none; /* Supprime puces */
+    gap: 30px; /* Espace entre liens */
+}
+
+/* Liens de navigation */
+.nav-links a {
+    color: white; /* Texte blanc */
+    text-decoration: none; /* Supprime soulignement */
+    padding: 10px 15px; /* Zone cliquable */
+    border-radius: 4px; /* Coins arrondis */
+    transition: all 0.3s; /* Animation fluide */
+}
+
+/* Effet au survol des liens */
+.nav-links a:hover {
+    background: rgba(255,255,255,0.1); /* Fond léger */
+    transform: translateY(-2px); /* Monte légèrement */
+}
+
+/* Bouton contact */
+.btn-contact {
+    background: #e74c3c; /* Fond rouge */
+    color: white; /* Texte blanc */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 25px; /* Forme arrondie */
+    text-decoration: none; /* Pas de soulignement */
+    transition: all 0.3s; /* Animation */
+}
+
+/* Effet survol bouton */
+.btn-contact:hover {
+    background: #c0392b; /* Rouge plus foncé */
+    transform: scale(1.05); /* Agrandit légèrement */
+}
+
+/* Styles responsive mobile */
+@media (max-width: 768px) {
+    
+    .navbar {
+        flex-direction: column; /* Éléments en colonne */
+        height: auto; /* Hauteur automatique */
+        padding: 20px; /* Plus d’espace */
+    }
+    
+    .nav-links {
+        flex-direction: column; /* Liens empilés */
+        gap: 10px; /* Espace réduit */
+        margin: 20px 0; /* Espacement vertical */
+    }
+}

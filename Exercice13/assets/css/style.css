@@ -1,0 +1,254 @@
+/* =========================
+   RESET & STYLE GLOBAL
+   ========================= */
+
+/* Inclut padding + border dans les dimensions */
+* { box-sizing: border-box; }
+
+/* Mise en page générale */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fa;
+
+    /* Espacement autour du contenu */
+    padding: 100px 40px;
+
+    /* Layout flexible pour tester plusieurs tooltips */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+/* =========================
+   CONTAINER TOOLTIP
+   ========================= */
+
+/*
+Conteneur parent.
+Position relative → référence pour le positionnement
+absolu du tooltip.
+*/
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* =========================
+   ELEMENT DECLENCHEUR
+   ========================= */
+
+/* Bouton ou élément qui déclenche le tooltip */
+.tooltip-trigger {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+
+    /* Animation hover */
+    transition: 0.3s;
+}
+
+/* Effet interaction utilisateur */
+.tooltip-trigger:hover,
+.tooltip-trigger:focus {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   TOOLTIP : BASE
+   ========================= */
+
+/*
+Tooltip caché par défaut.
+Position absolute → positionné par rapport
+au container parent.
+*/
+.tooltip {
+    position: absolute;
+    background: #2c3e50;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+
+    /* Empêche retour à la ligne */
+    white-space: nowrap;
+
+    /* Caché par défaut */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    /* Animation apparition */
+    transition: opacity 0.2s ease,
+                transform 0.2s ease,
+                visibility 0.2s;
+
+    /* Passe au-dessus des autres éléments */
+    z-index: 1000;
+}
+
+
+/* =========================
+   FLECHE DU TOOLTIP
+   ========================= */
+
+/*
+Pseudo-élément créant une flèche triangulaire
+avec les bordures CSS.
+*/
+.tooltip::before {
+    content: "";
+    position: absolute;
+    border: 6px solid transparent;
+}
+
+
+/* =========================
+   POSITION : TOP
+   ========================= */
+
+/* Tooltip au-dessus */
+.tooltip[data-position="top"] {
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%, -5px);
+}
+
+/* Orientation flèche */
+.tooltip[data-position="top"]::before {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: #2c3e50;
+}
+
+
+/* =========================
+   POSITION : BOTTOM
+   ========================= */
+
+/* Tooltip en dessous */
+.tooltip[data-position="bottom"] {
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%, 5px);
+}
+
+.tooltip[data-position="bottom"]::before {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: #2c3e50;
+}
+
+
+/* =========================
+   POSITION : LEFT
+   ========================= */
+
+/* Tooltip à gauche */
+.tooltip[data-position="left"] {
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translate(-5px, -50%);
+}
+
+.tooltip[data-position="left"]::before {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: #2c3e50;
+}
+
+
+/* =========================
+   POSITION : RIGHT
+   ========================= */
+
+/* Tooltip à droite */
+.tooltip[data-position="right"] {
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translate(5px, -50%);
+}
+
+.tooltip[data-position="right"]::before {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: #2c3e50;
+}
+
+
+/* =========================
+   ACTIVATION SANS JAVASCRIPT
+   ========================= */
+
+/*
+Le tooltip devient visible :
+- au survol (hover)
+- au focus clavier (accessibilité)
+*/
+.tooltip-container:hover .tooltip,
+.tooltip-container:focus-within .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================
+   CORRECTION ANIMATION POSITION
+   ========================= */
+
+/* Ajuste l'effet de déplacement selon la position */
+
+.tooltip-container:hover .tooltip[data-position="top"],
+.tooltip-container:focus-within .tooltip[data-position="top"] {
+    transform: translate(-50%, 0);
+}
+
+.tooltip-container:hover .tooltip[data-position="bottom"],
+.tooltip-container:focus-within .tooltip[data-position="bottom"] {
+    transform: translate(-50%, 0);
+}
+
+.tooltip-container:hover .tooltip[data-position="left"],
+.tooltip-container:focus-within .tooltip[data-position="left"] {
+    transform: translate(0, -50%);
+}
+
+.tooltip-container:hover .tooltip[data-position="right"],
+.tooltip-container:focus-within .tooltip[data-position="right"] {
+    transform: translate(0, -50%);
+}
+
+
+/* =========================
+   ICONE INFORMATION
+   ========================= */
+
+/* Exemple d’élément déclencheur alternatif */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    background: #3498db;
+    color: white;
+    border-radius: 50%;
+
+    font-weight: bold;
+    cursor: help;
+}

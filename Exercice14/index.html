@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+</head>
+<body>
+
+    <!--
+        TECHNIQUE CSS-ONLY :
+        La <input type="checkbox" id="theme-switch"> est cachée.
+        Le <label for="theme-switch"> est le bouton toggle visible.
+        Quand la checkbox est cochée, le sélecteur
+        "#theme-switch:checked ~ .wrapper" s'active
+        et réécrit toutes les variables CSS → thème sombre.
+    -->
+
+    <input type="checkbox" id="theme-switch" aria-label="Activer le mode sombre">
+
+    <div class="wrapper">
+        <div class="container">
+
+            <header>
+                <h1>Mon Site Web</h1>
+
+                <label class="theme-toggle" for="theme-switch" aria-label="Changer de thème">
+                    <div class="toggle-slider">
+                        <span class="sun-icon">☀️</span>
+                        <span class="moon-icon">🌙</span>
+                    </div>
+                </label>
+            </header>
+
+            <article class="card">
+                <h2>Bienvenue</h2>
+                <p>Ce site supporte le mode sombre ! Cliquez sur l'interrupteur en haut à droite pour basculer entre les thèmes clair et sombre.</p>
+                <button class="btn">En savoir plus</button>
+            </article>
+
+            <article class="card">
+                <h2>Fonctionnalités</h2>
+                <p>Le toggle est entièrement géré en CSS grâce à la technique <code>checkbox + label + sélecteur :checked</code>. Aucune ligne de JavaScript n'est nécessaire.</p>
+            </article>
+
+            <article class="card">
+                <h2>Accessibilité</h2>
+                <p>Si vous n'avez pas encore basculé le toggle, le site respectera les préférences de votre système d'exploitation via <code>@media (prefers-color-scheme: dark)</code>.</p>
+            </article>
+
+        </div>
+    </div>
+
+</body>
+</html>

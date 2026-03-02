@@ -1,0 +1,179 @@
+/* Applique box-sizing à tous les éléments */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif; /* Police principale */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fond dégradé */
+    min-height: 100vh; /* Hauteur minimale écran */
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    margin: 0; /* Supprime marges par défaut */
+}
+
+/* Conteneur du formulaire */
+.form-container {
+    background: white; /* Fond blanc */
+    padding: 40px; /* Espacement interne */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Ombre portée */
+    width: 100%; /* Largeur complète */
+    max-width: 500px; /* Largeur max */
+}
+
+/* Titre */
+h2 {
+    text-align: center; /* Centre texte */
+    color: #333; /* Texte gris foncé */
+    margin-bottom: 30px; /* Espace bas */
+}
+
+/* Ligne de champs */
+.form-row {
+    display: flex; /* Champs en ligne */
+    gap: 15px; /* Espace entre champs */
+}
+
+/* Groupe de champ */
+.form-group {
+    margin-bottom: 20px; /* Espace bas */
+    flex: 1; /* Largeur flexible */
+}
+
+/* Labels */
+label {
+    display: block; /* Sur nouvelle ligne */
+    margin-bottom: 5px; /* Espace bas */
+    color: #555; /* Couleur texte */
+    font-weight: 500; /* Texte semi-gras */
+}
+
+/* Champs input et select */
+input, select {
+    width: 100%; /* Largeur complète */
+    padding: 12px; /* Espacement interne */
+    border: 2px solid #ddd; /* Bordure grise */
+    border-radius: 6px; /* Coins arrondis */
+    font-size: 16px; /* Taille texte */
+    transition: border-color 0.3s; /* Animation bordure */
+}
+
+/* Champ actif */
+input:focus, select:focus {
+    outline: none; /* Supprime contour navigateur */
+    border-color: #667eea; /* Bordure bleue */
+}
+
+/* Champ valide */
+input:valid { border-color: #2ecc71; } /* Bordure verte */
+
+/* Champ invalide */
+input:invalid:not(:placeholder-shown) { border-color: #e74c3c; } /* Bordure rouge */
+
+/* Groupes radio et checkbox */
+.radio-group, .checkbox-group {
+    display: flex; /* Options en ligne */
+    gap: 15px; /* Espace entre options */
+    margin-top: 5px; /* Espace haut */
+}
+
+/* Labels radio et checkbox */
+.radio-group label, .checkbox-group label {
+    display: flex; /* Alignement flexible */
+    align-items: center; /* Centre verticalement */
+    font-weight: normal; /* Texte normal */
+    cursor: pointer; /* Curseur main */
+}
+
+/* Radio et checkbox */
+input[type="radio"], input[type="checkbox"] {
+    width: auto; /* Taille normale */
+    margin-right: 5px; /* Espace droite */
+}
+
+/* Bouton */
+button {
+    width: 100%; /* Largeur complète */
+    padding: 14px; /* Espacement interne */
+    background: #667eea; /* Fond bleu */
+    color: white; /* Texte blanc */
+    border: none; /* Sans bordure */
+    border-radius: 6px; /* Coins arrondis */
+    font-size: 16px; /* Taille texte */
+    font-weight: bold; /* Texte gras */
+    cursor: pointer; /* Curseur main */
+    transition: background 0.3s; /* Animation */
+}
+
+/* Survol bouton */
+button:hover {
+    background: #5568d3; /* Bleu plus foncé */
+}
+
+/* Texte indicatif */
+.hint {
+    font-size: 12px; /* Petite taille */
+    color: #888; /* Gris clair */
+    margin-top: 5px; /* Espace haut */
+}
+
+/* ===== Responsive Tablette ===== */
+@media (max-width: 768px) {
+
+    .form-container {
+        padding: 30px; /* Padding réduit */
+        margin: 20px; /* Espace bords écran */
+    }
+
+    .form-row {
+        flex-direction: column; /* Champs empilés */
+        gap: 0; /* Supprime espace */
+    }
+
+    h2 {
+        font-size: 22px; /* Titre plus petit */
+    }
+
+    input, select, button {
+        font-size: 15px; /* Texte adapté */
+    }
+}
+
+/* ===== Responsive Mobile ===== */
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px; /* Espace extérieur */
+        align-items: flex-start; /* Aligne en haut */
+    }
+
+    .form-container {
+        padding: 20px; /* Padding réduit */
+        border-radius: 8px; /* Coins moins arrondis */
+    }
+
+    h2 {
+        font-size: 20px; /* Titre mobile */
+        margin-bottom: 20px; /* Espace réduit */
+    }
+
+    .radio-group,
+    .checkbox-group {
+        flex-direction: column; /* Options empilées */
+        gap: 8px; /* Espace réduit */
+    }
+
+    input, select {
+        padding: 10px; /* Champs compacts */
+        font-size: 14px; /* Texte plus petit */
+    }
+
+    button {
+        padding: 12px; /* Bouton compact */
+        font-size: 15px; /* Texte bouton */
+    }
+
+    .hint {
+        font-size: 11px; /* Texte plus petit */
+    }
+}

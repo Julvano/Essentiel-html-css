@@ -1,0 +1,94 @@
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fa;
+    padding: 40px 20px;
+}
+
+.table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+thead {
+    background: #2c3e50;
+    color: white;
+}
+
+th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+th:hover {
+    background: #34495e;
+}
+
+th::after {
+    content: ' ↕';
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+td {
+    padding: 16px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+tbody tr:hover {
+    background: #e3f2fd;
+    transition: background 0.2s;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-actif { background: #d4edda; color: #155724; }
+.status-inactif { background: #f8d7da; color: #721c24; }
+.status-attente { background: #fff3cd; color: #856404; }
+
+.email {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.email:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        border-radius: 0;
+        margin: 0 -20px;
+    }
+}

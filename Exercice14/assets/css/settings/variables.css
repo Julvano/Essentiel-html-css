@@ -1,0 +1,35 @@
+:root {
+  --bg-color: #f5f7fa;
+  --text-color: #2c3e50;
+  --card-bg: #ffffff;
+  --border-color: #e1e8ed;
+  --primary-color: #667eea;
+  --shadow: rgba(0,0,0,0.1);
+  --toggle-track: #cbd5e0;
+  --toggle-knob: #ffffff;
+}
+
+/* thème sombre */
+#theme-switch:checked ~ .wrapper {
+  --bg-color: #1a1a2e;
+  --text-color: #eaeaea;
+  --card-bg: #16213e;
+  --border-color: #0f3460;
+  --primary-color: #e94560;
+  --shadow: rgba(0,0,0,0.3);
+  --toggle-track: #4a5568;
+  --toggle-knob: #ffffff;
+}
+
+/* préférence système */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a2e;
+    --text-color: #eaeaea;
+    --card-bg: #16213e;
+    --border-color: #0f3460;
+    --primary-color: #e94560;
+    --shadow: rgba(0,0,0,0.3);
+    --toggle-track: #4a5568;
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tooltips Accessibles</title>
+<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+
+<div class="tooltip-container">
+    <button class="tooltip-trigger" aria-describedby="tip1">
+        Info au-dessus
+    </button>
+    <div id="tip1" role="tooltip" class="tooltip" data-position="top">
+        Cette info apparaît au-dessus
+    </div>
+</div>
+
+<div class="tooltip-container">
+    <button class="tooltip-trigger" aria-describedby="tip2">
+        Info en-dessous
+    </button>
+    <div id="tip2" role="tooltip" class="tooltip" data-position="bottom">
+        Cette info apparaît en-dessous
+    </div>
+</div>
+
+<div class="tooltip-container">
+    <button class="tooltip-trigger" aria-describedby="tip3">
+        Info à gauche
+    </button>
+    <div id="tip3" role="tooltip" class="tooltip" data-position="left">
+        Info à gauche du bouton
+    </div>
+</div>
+
+<div class="tooltip-container">
+    <button class="tooltip-trigger" aria-describedby="tip4">
+        Info à droite
+    </button>
+    <div id="tip4" role="tooltip" class="tooltip" data-position="right">
+        Info à droite du bouton
+    </div>
+</div>
+
+<div class="tooltip-container">
+    <span class="info-icon" tabindex="0" aria-describedby="tip5">?</span>
+    <div id="tip5" role="tooltip" class="tooltip" data-position="top">
+        Aide contextuelle disponible ici
+    </div>
+</div>
+
+</body>
+</html>

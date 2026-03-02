@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Martin - Développeur Web Full Stack</title>
+    <meta name="description" content="Portfolio d'Alex Martin, développeur web freelance spécialisé React et Node.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+</head>
+<body id="top">
+
+    <!-- Checkbox caché : thème dark/light -->
+    <input type="checkbox" id="theme-toggle">
+
+    <!-- Header -->
+    <!-- Checkbox caché : menu mobile -->
+    <input type="checkbox" id="menu-toggle">
+
+    <header>
+        <nav>
+            <div class="logo">Alex Martin</div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <label for="theme-toggle" class="theme-toggle-label" aria-label="Changer de thème"></label>
+                <label for="menu-toggle" class="menu-toggle-label" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Salut, je suis Alex Martin</h1>
+            <p class="subtitle">Développeur Web Full Stack &amp; UI Designer</p>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">Voir mes projets</a>
+                <a href="#contact" class="btn btn-secondary">Me contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2>À propos</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="./assets/images/profil.jpg" alt="Alex Martin">
+            </div>
+            <div class="about-text">
+                <h3>Passionné par le code et le design</h3>
+                <p>Je suis un développeur web freelance avec 5 ans d'expérience dans la création d'applications web modernes et performantes. Je combine expertise technique et sens du design pour livrer des projets qui dépassent les attentes.</p>
+                <p style="margin-top:1rem;">Spécialisé React, Node.js et UI/UX Design, j'accompagne startups et entreprises dans leur transformation digitale.</p>
+                
+                <div class="skills">
+                    <div class="skill">
+                        <div class="skill-header">
+                            <span>Frontend (React, Vue)</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress skill-progress-95"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-header">
+                            <span>Backend (Node.js, Python)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress skill-progress-85"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-header">
+                            <span>UI/UX Design</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress skill-progress-80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <!-- Structure : radios + labels + grille en éléments frères pour que :checked ~ fonctionne -->
+    <section id="portfolio" class="fade-in">
+        <h2>Portfolio</h2>
+
+        <div class="portfolio-wrapper">
+            <!-- Radio buttons cachés -->
+            <input type="radio" class="filter-radio" name="portfolio-filter" id="filter-all" checked>
+            <input type="radio" class="filter-radio" name="portfolio-filter" id="filter-frontend">
+            <input type="radio" class="filter-radio" name="portfolio-filter" id="filter-backend">
+            <input type="radio" class="filter-radio" name="portfolio-filter" id="filter-design">
+
+            <div class="filter-buttons">
+                <label for="filter-all" class="filter-btn">Tous</label>
+                <label for="filter-frontend" class="filter-btn">Frontend</label>
+                <label for="filter-backend" class="filter-btn">Backend</label>
+                <label for="filter-design" class="filter-btn">Design</label>
+            </div>
+
+            <div class="portfolio-grid">
+                <article class="portfolio-item" data-category="frontend">
+                    <div class="portfolio-img">
+                        <img src="./assets/images/projet1.jpg" class="img-portfolio">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce React</h3>
+                        <p>Plateforme e-commerce complète avec panier, paiement Stripe et dashboard admin.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Redux</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item" data-category="backend">
+                    <div class="portfolio-img">
+                        <img src="./assets/images/projet2.jpg" class="img-portfolio">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>API RESTful</h3>
+                        <p>Architecture microservices avec authentification JWT, documentation Swagger et tests.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item" data-category="design">
+                    <div class="portfolio-img">
+                        <img src="./assets/images/projet3.jpg" class="img-portfolio">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Redesign Application</h3>
+                        <p>Refonte UX/UI complète d'une application mobile bancaire avec prototypage Figma.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">Prototypage</span>
+                            <span class="tag">User Research</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item" data-category="frontend">
+                    <div class="portfolio-img">
+                        <img src="./assets/images/projet4.jpg" class="img-portfolio">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>App React Native</h3>
+                        <p>Application mobile cross-platform de suivi fitness avec synchronisation cloud.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">API</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item" data-category="backend">
+                    <div class="portfolio-img">
+                        <img src="./assets/images/projet5.jpg" class="img-portfolio">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Chatbot IA</h3>
+                        <p>Intégration de modèles NLP pour service client automatisé avec analyse de sentiment.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">FastAPI</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="portfolio-item" data-category="design">
+                    <div class="portfolio-img">
+                        <img src="./assets/images/projet6.jpg" class="img-portfolio">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Design System</h3>
+                        <p>Création d'un design system complet avec composants réutilisables et documentation.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">Storybook</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Parlons de votre projet</h3>
+                <p>Vous avez un projet en tête ? N'hésitez pas à me contacter pour en discuter.</p>
+                
+                <div class="contact-item" style="margin-top:1.5rem;">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <strong>Email</strong>
+                        <p>alex.martin@email.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <p>+33 6 12 34 56 78</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <strong>Localisation</strong>
+                        <p>Paris, France</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulaire natif HTML (envoi via action mailto ou serveur) -->
+            <form class="contact-form" action="mailto:alex.martin@email.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Nom *</label>
+                    <input type="text" id="name" name="name" placeholder=" " required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" name="subject" placeholder=" ">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">
+                    Envoyer le message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn">
+                 <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Alex Martin. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Back to Top (lien ancre vers #top, visible via animation scroll-driven) -->
+    <a href="#top" class="back-to-top" aria-label="Retour en haut">↑</a>
+
+</body>
+</html>

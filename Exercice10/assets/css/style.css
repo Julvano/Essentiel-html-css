@@ -1,0 +1,169 @@
+/* Applique box-sizing à tous les éléments */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif; /* Police principale */
+    background: #f0f2f5; /* Fond gris clair */
+    padding: 40px; /* Espacement page */
+    line-height: 1.6; /* Espacement lignes texte */
+}
+
+/* Bouton ouverture modal */
+.btn-open {
+    background: #667eea; /* Fond bleu */
+    color: white; /* Texte blanc */
+    border: none; /* Pas de bordure */
+    padding: 14px 28px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 1rem; /* Taille texte */
+    cursor: pointer; /* Curseur main */
+    transition: all 0.3s; /* Animation fluide */
+}
+
+/* Effet survol bouton */
+.btn-open:hover {
+    background: #5568d3; /* Bleu plus foncé */
+    transform: translateY(-2px); /* Monte légèrement */
+}
+
+/* Fond sombre arrière-plan */
+.modal-backdrop {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Fixé à l'écran */
+    top: 0; /* En haut */
+    left: 0; /* À gauche */
+    width: 100%; /* Largeur écran */
+    height: 100%; /* Hauteur écran */
+    background: rgba(0,0,0,0.6); /* Fond noir transparent */
+    backdrop-filter: blur(4px); /* Effet flou */
+    z-index: 1000; /* Au-dessus des éléments */
+    animation: fadeIn 0.3s; /* Animation apparition */
+}
+
+/* Backdrop actif */
+.modal-backdrop.active {
+    display: flex; /* Active flexbox */
+    justify-content: center; /* Centre horizontal */
+    align-items: center; /* Centre vertical */
+    padding: 20px; /* Espace autour */
+}
+
+/* Fenêtre modal */
+.modal {
+    background: white; /* Fond blanc */
+    border-radius: 16px; /* Coins arrondis */
+    max-width: 500px; /* Largeur max */
+    width: 100%; /* Largeur adaptable */
+    max-height: 90vh; /* Hauteur max écran */
+    overflow-y: auto; /* Scroll vertical */
+    position: relative; /* Position relative */
+    animation: slideIn 0.3s; /* Animation entrée */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Ombre */
+}
+
+/* En-tête modal */
+.modal-header {
+    padding: 24px 24px 0; /* Espacement interne */
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Espace entre éléments */
+    align-items: center; /* Centre vertical */
+}
+
+/* Titre modal */
+.modal-title {
+    margin: 0; /* Supprime marges */
+    font-size: 1.5rem; /* Taille texte */
+    color: #2c3e50; /* Couleur texte */
+}
+
+/* Bouton fermeture */
+.btn-close {
+    background: none; /* Sans fond */
+    border: none; /* Sans bordure */
+    font-size: 1.5rem; /* Taille icône */
+    cursor: pointer; /* Curseur main */
+    color: #7f8c8d; /* Couleur grise */
+    width: 36px; /* Largeur fixe */
+    height: 36px; /* Hauteur fixe */
+    border-radius: 50%; /* Cercle */
+    display: flex; /* Flexbox */
+    align-items: center; /* Centre vertical */
+    justify-content: center; /* Centre horizontal */
+    transition: all 0.2s; /* Animation */
+}
+
+/* Effet survol fermeture */
+.btn-close:hover {
+    background: #f0f2f5; /* Fond gris */
+    color: #2c3e50; /* Couleur foncée */
+}
+
+/* Corps modal */
+.modal-body {
+    padding: 20px 24px; /* Espacement interne */
+    color: #555; /* Texte gris */
+}
+
+/* Pied modal */
+.modal-footer {
+    padding: 0 24px 24px; /* Espacement interne */
+    display: flex; /* Flexbox */
+    gap: 12px; /* Espace boutons */
+    justify-content: flex-end; /* Aligne à droite */
+}
+
+/* Bouton secondaire */
+.btn-secondary {
+    background: #ecf0f1; /* Fond gris clair */
+    color: #2c3e50; /* Texte foncé */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 6px; /* Coins arrondis */
+    cursor: pointer; /* Curseur main */
+    transition: background 0.2s; /* Animation */
+}
+
+/* Survol bouton secondaire */
+.btn-secondary:hover {
+    background: #d5dbdb; /* Gris plus foncé */
+}
+
+/* Bouton principal */
+.btn-primary {
+    background: #667eea; /* Fond bleu */
+    color: white; /* Texte blanc */
+    border: none; /* Sans bordure */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 6px; /* Coins arrondis */
+    cursor: pointer; /* Curseur main */
+    transition: background 0.2s; /* Animation */
+}
+
+/* Survol bouton principal */
+.btn-primary:hover {
+    background: #5568d3; /* Bleu plus foncé */
+}
+
+/* Animation apparition */
+@keyframes fadeIn {
+    from { opacity: 0; } /* Invisible départ */
+    to { opacity: 1; } /* Visible fin */
+}
+
+/* Animation entrée modal */
+@keyframes slideIn {
+    from {
+        opacity: 0; /* Invisible */
+        transform: translateY(-50px) scale(0.95); /* Monte + réduit */
+    }
+    to {
+        opacity: 1; /* Visible */
+        transform: translateY(0) scale(1); /* Position normale */
+    }
+}
+
+/* Indicateur focus accessibilité */
+*:focus-visible {
+    outline: 3px solid #667eea; /* Contour visible */
+    outline-offset: 2px; /* Espace contour */
+}

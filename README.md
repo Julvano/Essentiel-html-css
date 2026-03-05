@@ -4,7 +4,7 @@
 
 ---
 
-* Ebook disponible sur: [Prendre l'Ebook](https://digital-wisdom-9.mymaketou.store/fr/products/html-css-lessentiel)
+## Ebook disponible sur: [📘 Prendre l'Ebook](https://digital-wisdom-9.mymaketou.store/fr/products/html-css-lessentiel)
 
 ---
 ## 📚 Structure du Ebook
